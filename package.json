@@ -110,7 +110,7 @@
     "css-loader": "^0.28.7",
     "documentation": "^4.0.0-rc.1",
     "enzyme": "2",
-    "eslint": "^3.5.0",
+    "eslint": "^4.18.2",
     "eslint-import-resolver-webpack": "^0.8.3",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-flowtype": "^2.22.0",
