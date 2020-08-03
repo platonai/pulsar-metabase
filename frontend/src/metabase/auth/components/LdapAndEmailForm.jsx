@@ -34,7 +34,9 @@ export default class LdapAndEmailForm extends Component {
               title={
                 ldapEnabled ? t`Username or email address` : t`Email address`
               }
-              placeholder={t`youlooknicetoday@email.com`}
+              // placeholder={t`youlooknicetoday@email.com`}
+              placeholder={'greeting@platon.ai'}
+              default={'greeting@platon.ai'}
               validate={ldapEnabled ? validate.required() : validate.email()}
             />
             <FormField
@@ -42,6 +44,7 @@ export default class LdapAndEmailForm extends Component {
               type="password"
               title={t`Password`}
               placeholder={t`Shhh...`}
+              default={'greeting1'}
               validate={validate.required()}
             />
             <FormField

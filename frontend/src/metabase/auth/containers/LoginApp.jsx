@@ -1,13 +1,12 @@
-import React, { Component } from "react";
-import { Link } from "react-router";
-import { connect } from "react-redux";
+import React, {Component} from "react";
+import {Link} from "react-router";
+import {connect} from "react-redux";
 
-import { t } from "ttag";
+import {t} from "ttag";
 import _ from "underscore";
-import AuthScene from "../components/AuthScene";
 import LogoIcon from "metabase/components/LogoIcon";
 
-import { getAuthProviders } from "../selectors";
+import {getAuthProviders} from "../selectors";
 
 const mapStateToProps = (state, props) => ({
   providers: getAuthProviders(state, props),
@@ -41,7 +40,8 @@ export default class LoginApp extends Component {
             <LogoIcon className="Logo my4 sm-my0" height={65} />
           </div>
           <div className="Login-content Grid-cell p4 bg-white bordered rounded shadowed">
-            <h2 className="Login-header mb2">{t`Sign in to Metabase`}</h2>
+            {/*<h2 className="Login-header mb2">{t`Sign in to Metabase`} - 访客直接点击登录</h2>*/}
+            <h2 className="Login-header mb2">登录 - 访客直接点击【登录】</h2>
             {visibleProviders.length === 1 && visibleProviders[0].Panel ? (
               this.renderPanel(visibleProviders[0])
             ) : (
@@ -51,7 +51,6 @@ export default class LoginApp extends Component {
             )}
           </div>
         </div>
-        <AuthScene />
       </div>
     );
   }

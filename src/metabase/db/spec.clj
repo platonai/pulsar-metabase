@@ -16,6 +16,19 @@
 (defn- make-subname [host port db]
   (str "//" host ":" port "/" db))
 
+(defn h2tcp
+  "Create a Clojure JDBC database specification for a h2 database via tcp protocol."
+  [{:keys [host port db]
+    :or   {host "localhost", port 9092, db "xsqltest"}
+    :as   opts}]
+  (merge
+    {:classname   "org.h2.Driver"
+     :subprotocol "h2"
+     :subname     (str "tcp://" host ":" port "/~/" db)
+     :user "sa"
+     :password "sa"}
+    (dissoc opts :host :port :db :user :password)))
+
 (defn postgres
   "Create a Clojure JDBC database specification for a Postgres database."
   [{:keys [host port db]
