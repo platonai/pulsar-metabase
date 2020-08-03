@@ -1,0 +1,67 @@
+.List {
+  padding: var(--padding-1);
+}
+
+.List-section-header .Icon,
+.List-item .List-item-arrow .Icon {
+  color: var(--color-text-dark);
+}
+
+.List-item .Icon {
+  color: var(--color-text-light);
+}
+
+.List-section-header {
+  color: var(--color-text-dark);
+  border: 2px solid transparent; /* so that spacing matches .List-item */
+}
+
+/* these crazy rules are needed to get currentColor to propagate to the right elements in the right states */
+.List-section--togglable .List-section-header:hover,
+.List-section--togglable .List-section-header:hover .Icon,
+.List-section--togglable .List-section-header:hover .List-section-title,
+.List-section--expanded .List-section-header,
+.List-section--expanded .List-section-header .List-section-icon .Icon {
+  color: currentColor;
+}
+
+.List-section--expanded .List-section-header .List-section-title {
+  color: var(--color-text-dark);
+}
+
+.List-section-title {
+  word-wrap: break-word;
+  max-width: 230px;
+}
+
+.List-item {
+  display: flex;
+  border-radius: 4px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.List-item--disabled .List-item-title {
+  color: var(--color-text-medium);
+}
+
+.List-item:not(.List-item--disabled):hover,
+.List-item--selected {
+  background-color: currentColor;
+  border-color: color(var(--color-accent2) alpha(-80%));
+  /*color: white;*/
+}
+
+.List-item-title {
+  color: var(--color-text-dark);
+}
+
+.List-item:not(.List-item--disabled):hover .List-item-title,
+.List-item--selected .List-item-title {
+  color: white;
+}
+
+.List-item:not(.List-item--disabled):hover .Icon,
+.List-item--selected .Icon {
+  color: white !important;
+}
