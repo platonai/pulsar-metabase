@@ -63,7 +63,7 @@
                                    "*.gstatic.com"
                                    ;; for webpack hot reloading
                                    (when config/is-dev?
-                                     "localhost:8080")]
+                                     "localhost:8089")]
                                   (map (partial format "'sha256-%s'") inline-js-hashes))
                   :child-src    ["'self'"
                                  ;; TODO - double check that we actually need this for Google Auth
@@ -72,14 +72,14 @@
                                  "'unsafe-inline'"]
                   :font-src     ["'self'"
                                  (when config/is-dev?
-                                   "localhost:8080")]
+                                   "localhost:8089")]
                   :img-src      ["*"
                                  "'self' data:"]
                   :connect-src  ["'self'"
                                  ;; MailChimp. So people can sign up for the Metabase mailing list in the sign up process
                                  "metabase.us10.list-manage.com"
                                  (when config/is-dev?
-                                   "localhost:8080 ws://localhost:8080")]
+                                   "localhost:8089 ws://localhost:8089")]
                   :manifest-src ["'self'"]}]
       (format "%s %s; " (name k) (str/join " " vs))))})
 

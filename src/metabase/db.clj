@@ -68,6 +68,7 @@
                                  :postgres   :postgres
                                  :postgresql :postgres
                                  :mysql      :mysql
+                                 :h2tcp      :h2tcp
                                  :h2         :h2)}
 
                     (case (keyword protocol)
@@ -128,6 +129,12 @@
                     :dbname   (config/config-str :mb-db-dbname)
                     :user     (config/config-str :mb-db-user)
                     :password (config/config-str :mb-db-pass)}
+         :h2tcp    {:type     :h2tcp
+                    :host     (config/config-str :mb-db-host)
+                    :port     (config/config-int :mb-db-port)
+                    :dbname   (config/config-str :mb-db-dbname)
+                    :user     (config/config-str :mb-db-user)
+                    :password (config/config-str :mb-db-pass)}
          :postgres {:type     :postgres
                     :host     (config/config-str :mb-db-host)
                     :port     (config/config-int :mb-db-port)
@@ -145,6 +152,7 @@
    ;; TODO: it's probably a good idea to put some more validation here and be really strict about what's in `db-details`
    (case (:type db-details)
      :h2       (db.spec/h2       db-details)
+     :h2tcp    (db.spec/h2tcp    (assoc db-details :db (:dbname db-details)))
      :mysql    (db.spec/mysql    (assoc db-details :db (:dbname db-details)))
      :postgres (db.spec/postgres (assoc db-details :db (:dbname db-details))))))
 
@@ -255,6 +263,7 @@
   (db/set-default-quoting-style! (case (db-type)
                                    :postgres :ansi
                                    :h2       :h2
+                                   :h2tcp    :h2tcp
                                    :mysql    :mysql))
   ;; REPL usage only: kill the old pool if one exists
   (u/ignore-exceptions

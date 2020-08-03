@@ -67,7 +67,7 @@
   (init-status/set-progress! 0.3)
 
   ;; Load up the drivers shipped as part of the main codebase, so they will show up in the list of available DB types
-  (classloader/require 'metabase.driver.h2 'metabase.driver.postgres 'metabase.driver.mysql)
+  (classloader/require 'metabase.driver.h2 'metabase.driver.h2tcp 'metabase.driver.postgres 'metabase.driver.mysql)
   (init-status/set-progress! 0.4)
 
   ;; startup database.  validates connection & runs any necessary migrations
