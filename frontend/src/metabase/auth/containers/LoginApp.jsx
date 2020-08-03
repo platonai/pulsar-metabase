@@ -35,7 +35,8 @@ export default class LoginApp extends Component {
     this.state = {
       credentials: {},
       valid: false,
-      rememberMe: true,
+      defaultAccount: true,
+      rememberMe: true
     };
   }
 
@@ -125,7 +126,8 @@ export default class LoginApp extends Component {
               name="form"
               onSubmit={e => this.formSubmitted(e)}
             >
-              <h3 className="Login-header Form-offset">{t`Sign in to Metabase`}</h3>
+              {/*<h3 className="Login-header Form-offset">{t`Sign in to Metabase`}</h3>*/}
+              <h3 className="Login-header Form-offset">登录 - 访客直接点击【登录】</h3>
 
               {Settings.ssoEnabled() && (
                 <div className="mx4 mb4 py3 border-bottom relative">
@@ -163,7 +165,7 @@ export default class LoginApp extends Component {
                 <input
                   className="Form-input Form-offset full py1"
                   name="username"
-                  placeholder="youlooknicetoday@email.com"
+                  placeholder="greeting@platon.ai"
                   type={
                     /*
                      * if a user has ldap enabled, use a text input to allow for
@@ -174,6 +176,7 @@ export default class LoginApp extends Component {
                     ldapEnabled ? "text" : "email"
                   }
                   onChange={e => this.onChange("username", e.target.value)}
+                  initial={"greeting@platon.ai"}
                   autoFocus
                 />
                 <span className="Form-charm" />
@@ -189,15 +192,33 @@ export default class LoginApp extends Component {
                   fieldName={"password"}
                   formError={loginError}
                 />
+                <label className="Form-label Form-offset">greeting1</label>
                 <input
                   className="Form-input Form-offset full py1"
                   name="password"
                   placeholder="Shh..."
+                  // placeholder="greeting1"
                   type="password"
                   onChange={e => this.onChange("password", e.target.value)}
                 />
                 <span className="Form-charm" />
               </FormField>
+
+              <div className="Form-field">
+                <div className="Form-offset flex align-center">
+                  <CheckBox
+                    name="Default Account"
+                    checked={this.state.defaultAccount}
+                    onChange={() => {
+                        this.setState({ defaultAccount: !this.state.defaultAccount, valid: true });
+                        this.onChange("username", "greeting@platon.ai");
+                        this.onChange("password", "greeting1")
+                      }
+                    }
+                  />
+                  <span className="ml1">{t`Default Account`}</span>
+                </div>
+              </div>
 
               <div className="Form-field">
                 <div className="Form-offset flex align-center">

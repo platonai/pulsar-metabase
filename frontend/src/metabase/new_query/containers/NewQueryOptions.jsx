@@ -130,13 +130,15 @@ export class NewQueryOptions extends Component {
       <div className="full-height flex align-center justify-center">
         <div className="wrapper wrapper--trim lg-wrapper--trim xl-wrapper--trim ">
           <ol className="Grid Grid--guttersXl Grid--full sm-Grid--normal">
-            {showMetricOption && (
+            {showSQLOption && (
               <li className="Grid-cell">
                 <NewQueryOption
-                  image="app/img/questions_illustration"
-                  title={t`Metrics`}
-                  description={t`See data over time, as a map, or pivoted to help you understand trends or changes.`}
-                  to={metricSearchUrl}
+                  image="app/img/sql_illustration"
+                  // title={t`Native query`}
+                  // description={t`For more complicated questions, you can write your own SQL or native query.`}
+                  title={t`X-SQL`}
+                  description={t`Write X-SQL to turn Web pages into tables and charts`}
+                  to={this.getNativeQueryUrl}
                 />
               </li>
             )}
@@ -154,13 +156,13 @@ export class NewQueryOptions extends Component {
                 to={this.getGuiQueryUrl}
               />
             </li>
-            {showSQLOption && (
+            {showMetricOption && (
               <li className="Grid-cell">
                 <NewQueryOption
-                  image="app/img/sql_illustration"
-                  title={t`Native query`}
-                  description={t`For more complicated questions, you can write your own SQL or native query.`}
-                  to={this.getNativeQueryUrl}
+                  image="app/img/questions_illustration"
+                  title={t`Metrics`}
+                  description={t`See data over time, as a map, or pivoted to help you understand trends or changes.`}
+                  to={metricSearchUrl}
                 />
               </li>
             )}

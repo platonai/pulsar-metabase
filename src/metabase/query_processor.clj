@@ -3,6 +3,7 @@
   implementations."
   (:require [clojure.tools.logging :as log]
             [medley.core :as m]
+            [clojure.string :as str]
             [metabase
              [driver :as driver]
              [util :as u]]
@@ -206,12 +207,85 @@
 
 (def ^:private default-pipeline (qp-pipeline execute-query))
 
-(defn process-query
+(defn- find-nested
+  [m k]
+  (->> (tree-seq map? vals m)
+       (filter map?)
+       (some k)))
+
+(defn- is-parametered-harvest?
+  [statment]
+  (re-matches #"(?i).+harvest\(\{\{.+\}\}\).*" statment))
+
+(defn- get-the-only-query-parameter
+  [query]
+  (let [parameters (query :parameters)]
+    (if (or (empty? parameters) (empty? (find-nested (first parameters) :value)))
+      (find-nested (query :native :template-tags) :default)
+      (find-nested (first parameters) :value))))
+
+;;; special case: SELECT * FROM HARVEST({{PORTAL_URL}});
+(defn- process-parametered-harvest
+  {:style/indent 0}
+  [query statment]
+  (let [parameter (get-the-only-query-parameter query)]
+    (assoc query :native [])
+    (assoc query :parameters [])
+    (let [stat (str/replace statment #"\{\{.+\}\}" (str "\\'" parameter "\\'"))]
+      (default-pipeline (assoc-in query [:native :query] stat)))))
+
+(defn- process-honeysql-query
   "A pipeline of various QP functions (including middleware) that are used to process MB queries."
   {:style/indent 0}
   [query]
   (default-pipeline query))
 
+;;; TODO: we may need a better way to handle all parametered pulsar udfs
+(defn- process-native-query-statment
+  {:style/indent 0}
+  [query statment]
+  (if (is-parametered-harvest? statment)
+    (process-parametered-harvest query statment)
+    (default-pipeline (assoc-in query [:native :query] statment))))
+
+;;; not the split regex: the entire sql is splitted into statements by ; not not followed by \'.
+;;; this handles the case when select values('a-sql-as-string')
+;;; TODO: should use a sql parser to split sql statments, the regex sulotion is buggy
+(defn- process-native-query-statments
+  {:style/indent 0}
+  [query]
+  (for [sql (-> query :native :query (str/split #"\s*;\s*(?=([^']*'[^']*')*[^']*$)"))
+        :let [statment (str/trim sql)]
+        :when (and
+               (not (re-matches #"(--.*)|(((/\*)+?[\w\W]+?(\*/)+))" statment))
+               (> (count statment) 5))]
+    (process-native-query-statment query statment)))
+
+;; TODO: we may need display multi results
+(defn- process-native-query
+  "Process native query."
+  {:style/indent 0}
+  [query]
+  (let [result (process-native-query-statments query)]
+    (if (empty? result)
+      {
+        :status    "success"
+        :row_count 0
+        :data      {
+                     :rows    []
+                     :cols    []
+                     :columns []}}
+      (last result))))
+
+(defn process-query
+  "A pipeline of various QP functions (including middleware) that are used to process MB queries."
+  {:style/indent 0}
+  [query]
+  (if
+    (str/ends-with? (query :type) "native")
+    (process-native-query query)
+    (process-honeysql-query query)
+    ))
 
 ;;; +----------------------------------------------------------------------------------------------------------------+
 ;;; |                                            DATASET-QUERY PUBLIC API                                            |
