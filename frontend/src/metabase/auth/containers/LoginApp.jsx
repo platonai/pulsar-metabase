@@ -176,7 +176,7 @@ export default class LoginApp extends Component {
                     ldapEnabled ? "text" : "email"
                   }
                   onChange={e => this.onChange("username", e.target.value)}
-                  initial={"greeting@platon.ai"}
+                  defaultValue={"greeting@platon.ai"}
                   autoFocus
                 />
                 <span className="Form-charm" />
@@ -199,6 +199,7 @@ export default class LoginApp extends Component {
                   placeholder="Shh..."
                   // placeholder="greeting1"
                   type="password"
+                  defaultValue={"greeting1"}
                   onChange={e => this.onChange("password", e.target.value)}
                 />
                 <span className="Form-charm" />
