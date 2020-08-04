@@ -36,6 +36,8 @@
         ;; MVStore engine anyway so this only affects people still with legacy PageStore databases
         ;;
         ;; Tell H2 to defrag when Metabase is shut down -- can reduce DB size by multiple GIGABYTES -- see #6510
+        ;;
+        ;; vincent: MVCC is no longer supported by h2-1.4.200+
         options ";DB_CLOSE_DELAY=-1;MVCC=TRUE;DEFRAG_ALWAYS=TRUE"]
     ;; H2 wants file path to always be absolute
     (str "file:"

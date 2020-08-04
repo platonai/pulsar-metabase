@@ -78,7 +78,8 @@
                  it.unimi.dsi/fastutil]]
    [com.draines/postal "2.0.3"]                                       ; SMTP library
    [com.google.guava/guava "28.2-jre"]                                ; dep for BigQuery, Spark, and GA. Require here rather than letting different dep versions stomp on each other — see comments on #9697
-   [com.h2database/h2 "1.4.197"]                                      ; embedded SQL database
+   ;[com.h2database/h2 "1.4.197"]                                     ; embedded SQL database
+   [ai.platon.pulsar/pulsar-h2 "1.4.196-SNAPSHOT"]                    ; Web SQL
    [com.mattbertolini/liquibase-slf4j "2.0.0"]                        ; Java Migrations lib logging. We don't actually use this AFAIK (?)
    [com.taoensso/nippy "2.14.0"]                                      ; Fast serialization (i.e., GZIP) library for Clojure
    [commons-codec/commons-codec "1.14"]                               ; Apache Commons -- useful codec util fns
@@ -154,7 +155,8 @@
 
   :jvm-opts
   ["-XX:+IgnoreUnrecognizedVMOptions"                                 ; ignore things not recognized for our Java version instead of refusing to start
-   "-Xverify:none"                                                    ; disable bytecode verification when running in dev so it starts slightly faster
+   ; Options -Xverify:none and -noverify were deprecated in JDK 13 (Vincent Zhang)
+   ;"-Xverify:none"                                                    ; disable bytecode verification when running in dev so it starts slightly faster
    "-Djava.awt.headless=true"]                                        ; prevent Java icon from randomly popping up in dock when running `lein ring server`
 
   :target-path "target/%s"
