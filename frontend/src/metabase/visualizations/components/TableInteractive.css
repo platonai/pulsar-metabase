@@ -7,6 +7,10 @@
   overflow: hidden;
 }
 
+/**
+ * modified
+ * @author Vincent Zhang ivincent.zhang@gmail.com 20200805
+ * */
 .TableInteractive-headerCellData .cellData {
   font-weight: normal;
   font-size: small;
@@ -69,6 +73,10 @@
   background-color: var(--color-bg-white);
 }
 
+/**
+ * modified
+ * @author Vincent Zhang ivincent.zhang@gmail.com 20200805
+ * */
 /* cell overflow ellipsis */
 .TableInteractive .cellData {
   margin: 0 0.75em;
