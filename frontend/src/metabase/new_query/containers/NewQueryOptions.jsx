@@ -79,6 +79,20 @@ export default class NewQueryOptions extends Component {
     return (
       <Box my="auto" mx={PAGE_PADDING}>
         <Grid className="justifyCenter">
+          {hasNativeWrite && (
+            <GridItem w={ITEM_WIDTHS}>
+              <NewQueryOption
+                image="app/img/sql_illustration"
+                title={t`Native query` + "(X-SQL)"}
+                description={t`For more complicated questions, you can write your own SQL or native query.`}
+                to={Urls.newQuestion({ type: "native" })}
+                width={180}
+                data-metabase-event={`New Question; Native Query Start`}
+              />
+            </GridItem>
+          )}
+        </Grid>
+        <Grid className="justifyCenter">
           {hasDataAccess && (
             <GridItem w={ITEM_WIDTHS}>
               <NewQueryOption
@@ -100,18 +114,6 @@ export default class NewQueryOptions extends Component {
                 width={180}
                 to={Urls.newQuestion({ mode: "notebook" })}
                 data-metabase-event={`New Question; Custom Question Start`}
-              />
-            </GridItem>
-          )}
-          {hasNativeWrite && (
-            <GridItem w={ITEM_WIDTHS}>
-              <NewQueryOption
-                image="app/img/sql_illustration"
-                title={t`Native query`}
-                description={t`For more complicated questions, you can write your own SQL or native query.`}
-                to={Urls.newQuestion({ type: "native" })}
-                width={180}
-                data-metabase-event={`New Question; Native Query Start`}
               />
             </GridItem>
           )}

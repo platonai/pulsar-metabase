@@ -8,8 +8,8 @@
 }
 
 .TableInteractive-headerCellData .cellData {
-  font-weight: 900;
-  font-size: 10px;
+  font-weight: lighter;
+  font-size: smaller;
   border: 1px solid color(var(--color-brand) alpha(-80%));
   padding: 0.25em 0.65em;
   border-radius: 6px;

@@ -2,7 +2,7 @@
 
 set -e
 
-export JAVAC=/usr/lib/jvm/java-8-sun/bin/javac
+export JAVAC=/usr/lib/jvm/java-11-openjdk-amd64/bin/java
 
 # Generate the resources/version.properties file
 version() {

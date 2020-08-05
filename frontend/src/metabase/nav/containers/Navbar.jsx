@@ -67,7 +67,7 @@ const ActiveSearchColor = lighten(color("nav"), 0.1);
 
 const NavHover = {
   backgroundColor: darken(color("nav")),
-  color: "white",
+  color: color("text-medium"),
 };
 
 const SearchWrapper = Flex.extend`
@@ -75,9 +75,9 @@ const SearchWrapper = Flex.extend`
     props.active ? ActiveSearchColor : DefaultSearchColor};
   border-radius: 6px;
   flex: 1 1 auto;
-  max-width: 50em;
+  max-width: 200em;
   align-items: center;
-  color: white;
+  color: ${color("text-medium")};
   transition: background 300ms ease-in;
   &:hover {
     background-color: ${ActiveSearchColor};
@@ -88,14 +88,14 @@ const SearchInput = styled.input`
   ${space} background-color: transparent;
   width: 100%;
   border: none;
-  color: white;
+  color: ${color("text-medium")};
   font-size: 1em;
   font-weight: 700;
   &:focus {
     outline: none;
   }
   &::placeholder {
-    color: ${color("text-white")};
+    color: ${color("text-medium")};
   }
 `;
 
@@ -290,7 +290,7 @@ export default class Navbar extends Component {
               data-metabase-event={"Navbar;Logo"}
               className="NavItem cursor-pointer flex align-center"
             >
-              <LogoIcon className="text-brand my2" />
+              <LogoIcon className="text-brand-nav my2" />
             </Link>
           </li>
         </ul>
@@ -306,7 +306,7 @@ export default class Navbar extends Component {
       <Flex
         // NOTE: DO NOT REMOVE `Nav` CLASS FOR NOW, USED BY MODALS, FULLSCREEN DASHBOARD, ETC
         // TODO: hide nav using state in redux instead?
-        className="Nav relative bg-brand text-white z3 flex-no-shrink"
+        className="Nav relative bg-brand-nav text-medium z3 flex-no-shrink"
         align="center"
         style={{ backgroundColor: color("nav") }}
         py={1}
@@ -326,12 +326,12 @@ export default class Navbar extends Component {
               align="center"
               justify="center"
             >
-              <LogoIcon dark height={32} />
+              <LogoIcon height={32} />
             </Flex>
           </Link>
         </Flex>
         <Flex className="flex-full z1" pr={2} align="center">
-          <Box w={1} style={{ maxWidth: 500 }}>
+          <Box w={1} style={{ maxWidth: 800 }}>
             <SearchBar
               location={this.props.location}
               onChangeLocation={this.props.onChangeLocation}
@@ -345,7 +345,7 @@ export default class Navbar extends Component {
               to={Urls.newQuestionFlow()}
               p={1}
               hover={{
-                backgroundColor: darken(color("brand")),
+                backgroundColor: darken(color("brand-nav")),
               }}
               className="flex align-center rounded transition-background"
               data-metabase-event={`NavBar;New Question`}
@@ -362,7 +362,7 @@ export default class Navbar extends Component {
               className="flex align-center rounded transition-background"
               data-metabase-event={`NavBar;Data Browse`}
               hover={{
-                backgroundColor: darken(color("brand")),
+                backgroundColor: darken(color("brand-nav")),
               }}
             >
               <Icon name="table_spaced" size={14} />

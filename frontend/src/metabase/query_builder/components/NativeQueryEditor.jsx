@@ -167,7 +167,8 @@ export default class NativeQueryEditor extends Component {
 
   componentWillMount() {
     const { question, setIsNativeEditorOpen } = this.props;
-    setIsNativeEditorOpen(!question || !question.isSaved());
+    const isNewCustom = true;
+    setIsNativeEditorOpen(isNewCustom || !question || !question.isSaved());
   }
 
   componentDidMount() {
