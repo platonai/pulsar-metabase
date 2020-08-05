@@ -13,7 +13,7 @@ import MiniBar from "./MiniBar";
 
 import ExternalLink from "metabase/components/ExternalLink";
 
-import { formatValue } from "metabase/lib/formatting";
+import {formatValue, getCellValue, isHtml} from "metabase/lib/formatting";
 import {
   getTableCellClickedObject,
   isColumnRightAligned,
@@ -206,7 +206,7 @@ export default class TableSimple extends Component {
                             extent={getColumnExtent(cols, rows, columnIndex)}
                           />
                         ) : (
-                          formatValue(value, {
+                          getCellValue(value, {
                             ...columnSettings,
                             clicked: clicked,
                             type: "cell",

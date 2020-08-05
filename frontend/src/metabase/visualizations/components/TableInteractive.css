@@ -8,8 +8,8 @@
 }
 
 .TableInteractive-headerCellData .cellData {
-  font-weight: lighter;
-  font-size: smaller;
+  font-weight: normal;
+  font-size: small;
   border: 1px solid color(var(--color-brand) alpha(-80%));
   padding: 0.25em 0.65em;
   border-radius: 6px;
@@ -76,8 +76,8 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow-x: hidden;
-  font-weight: lighter;
-  font-size: smaller;
+  font-weight: normal;
+  font-size: small;
 }
 
 /* pivot */

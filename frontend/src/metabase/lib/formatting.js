@@ -627,6 +627,11 @@ export function formatImage(
 
 // fallback for formatting a string without a column special_type
 function formatStringFallback(value: Value, options: FormattingOptions = {}) {
+  let html = formatHtmlTagOrNull(value, options);
+  if (html != null) {
+    return html;
+  }
+
   if (options.view_as !== null) {
     value = formatUrl(value, options);
     if (typeof value === "string") {
@@ -890,4 +895,44 @@ export function formatSQL(sql: string) {
 
     return sql;
   }
+}
+
+
+/**
+ * @author Vincent Zhang ivincent.zhang@gmail.com 20200805
+ * */
+export function isHtml(value): boolean {
+  return (typeof value === "string") && /<\/?[^>]*>/.test(value.trim())
+}
+
+/**
+ * @author Vincent Zhang ivincent.zhang@gmail.com 20200805
+ * */
+export function getCellValue(value, columnSettings) {
+  /* using formatValue instead of <Value> here for performance. The later wraps in an extra <span> */
+  let formatted = formatValue(value, {
+    ...columnSettings,
+    type: "cell",
+    jsx: true,
+    rich: true,
+  });
+
+  if (formatted == null) {
+    return ".";
+  } else if (isHtml(formatted)) {
+    return <div dangerouslySetInnerHTML={{__html: formatted}}/>;
+  } else {
+    return formatted;
+  }
+}
+
+/**
+ * @author Vincent Zhang ivincent.zhang@gmail.com 20200805
+ * */
+export function formatHtmlTagOrNull(value: Value, options: FormattingOptions = {}) {
+  let trimmed: string = value.trim();
+  if (options.type === "cell" && trimmed.startsWith("<") && trimmed.endsWith(">")) {
+    return trimmed;
+  }
+  return null
 }
