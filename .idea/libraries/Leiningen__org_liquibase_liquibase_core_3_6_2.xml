@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: org.liquibase/liquibase-core:3.6.2">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/liquibase/liquibase-core/3.6.2/liquibase-core-3.6.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

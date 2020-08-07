@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+set -e
+#export JAVAC=/usr/lib/jvm/java-8-sun/bin/javac
+
 # Generate the resources/version.properties file
 version() {
     VERSION_INFO=$(./bin/version)

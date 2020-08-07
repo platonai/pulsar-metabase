@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: puppetlabs/i18n:0.8.0">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/puppetlabs/i18n/0.8.0/i18n-0.8.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

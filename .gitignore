@@ -9,7 +9,6 @@
 .DS_Store
 .\#*
 .eastwood
-.idea/
 .nrepl-port
 .vscode
 /*.h2.db

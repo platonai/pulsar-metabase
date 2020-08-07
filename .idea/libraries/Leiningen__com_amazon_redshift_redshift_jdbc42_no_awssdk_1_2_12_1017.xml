@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: com.amazon.redshift/redshift-jdbc42-no-awssdk:1.2.12.1017">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/amazon/redshift/redshift-jdbc42-no-awssdk/1.2.12.1017/redshift-jdbc42-no-awssdk-1.2.12.1017.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

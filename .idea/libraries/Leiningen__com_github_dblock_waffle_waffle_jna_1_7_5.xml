@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: com.github.dblock.waffle/waffle-jna:1.7.5">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/dblock/waffle/waffle-jna/1.7.5/waffle-jna-1.7.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

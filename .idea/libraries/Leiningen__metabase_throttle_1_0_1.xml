@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: metabase/throttle:1.0.1">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/metabase/throttle/1.0.1/throttle-1.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

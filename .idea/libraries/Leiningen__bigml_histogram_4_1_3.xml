@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: bigml/histogram:4.1.3">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/bigml/histogram/4.1.3/histogram-4.1.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

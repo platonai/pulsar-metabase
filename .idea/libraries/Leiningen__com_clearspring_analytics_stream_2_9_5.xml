@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: com.clearspring.analytics/stream:2.9.5">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/clearspring/analytics/stream/2.9.5/stream-2.9.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

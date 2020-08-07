@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: net.snowflake/snowflake-jdbc:3.6.13">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/net/snowflake/snowflake-jdbc/3.6.13/snowflake-jdbc-3.6.13.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: org.osgi/org.osgi.core:4.3.1">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/osgi/org.osgi.core/4.3.1/org.osgi.core-4.3.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: com.unboundid/unboundid-ldapsdk:3.1.1">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/unboundid/unboundid-ldapsdk/3.1.1/unboundid-ldapsdk-3.1.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

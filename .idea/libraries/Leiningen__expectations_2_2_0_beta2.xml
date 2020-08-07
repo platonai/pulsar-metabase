@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: expectations:2.2.0-beta2">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/expectations/expectations/2.2.0-beta2/expectations-2.2.0-beta2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

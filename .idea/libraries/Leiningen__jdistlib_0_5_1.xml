@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: jdistlib:0.5.1">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/jdistlib/jdistlib/0.5.1/jdistlib-0.5.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

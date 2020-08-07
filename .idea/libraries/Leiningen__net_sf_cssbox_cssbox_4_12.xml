@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: net.sf.cssbox/cssbox:4.12">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/net/sf/cssbox/cssbox/4.12/cssbox-4.12.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

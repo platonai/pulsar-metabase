@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: net.sf.cssbox/jstyleparser:1.23">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/net/sf/cssbox/jstyleparser/1.23/jstyleparser-1.23.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
