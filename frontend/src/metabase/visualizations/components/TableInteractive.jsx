@@ -9,7 +9,7 @@ import Icon from "metabase/components/Icon";
 
 import ExternalLink from "metabase/components/ExternalLink";
 
-import {formatValue, getCellValue} from "metabase/lib/formatting";
+import {getCellValue} from "metabase/lib/formatting";
 import { isID, isFK } from "metabase/lib/schema_metadata";
 import { memoize } from "metabase-lib/lib/utils";
 import {
@@ -144,7 +144,7 @@ export default class TableInteractive extends Component {
       <div className="cellData">{children}</div>
     ),
     renderTableCellWrapper: children => (
-      <div className="cellData">{getCellValue(children)}</div>
+      <div className="cellData">{children}</div>
     ),
   };
 
@@ -431,7 +431,7 @@ export default class TableInteractive extends Component {
     clicked: ?ClickObject,
   ) {
     try {
-      return formatValue(value, {
+      return getCellValue(value, {
         ...columnSettings,
         type: "cell",
         jsx: true,

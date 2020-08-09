@@ -276,6 +276,7 @@
    :VARCHAR_IGNORECASE                  :type/Text
    :YEAR                                :type/Integer
    (keyword "DOUBLE PRECISION")         :type/Float
+   :OBJECT                              :type/*             ;; @author Vincent Zhang ivincent.zhang@gmail.com 20200809
    (keyword "TIMESTAMP WITH TIME ZONE") :type/DateTimeWithLocalTZ})
 
 (defmethod sql-jdbc.sync/database-type->base-type :h2tcp
