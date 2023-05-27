@@ -79,13 +79,13 @@
    [com.draines/postal "2.0.3"]                                       ; SMTP library
    [com.google.guava/guava "28.2-jre"]                                ; dep for BigQuery, Spark, and GA. Require here rather than letting different dep versions stomp on each other — see comments on #9697
    ;[com.h2database/h2 "1.4.197"]                                     ; embedded SQL database
-   [ai.platon.pulsar/pulsar-ql-common "1.6.3-SNAPSHOT"]               ; Web SQL
+   [ai.platon.pulsar/pulsar-ql-common "1.10.12"]                      ; Web SQL
    [com.mattbertolini/liquibase-slf4j "2.0.0"]                        ; Java Migrations lib logging. We don't actually use this AFAIK (?)
    [com.taoensso/nippy "2.14.0"]                                      ; Fast serialization (i.e., GZIP) library for Clojure
    [commons-codec/commons-codec "1.14"]                               ; Apache Commons -- useful codec util fns
    [commons-io/commons-io "2.6"]                                      ; Apache Commons -- useful IO util fns
    [commons-validator/commons-validator "1.6"                         ; Apache Commons -- useful validation util fns
-    :exclusions [commons-beanutils
+    :exclusions [ commons-beanutils
                  commons-digester
                  commons-logging]]
    [compojure "1.6.1" :exclusions [ring/ring-codec]]                  ; HTTP Routing library built on Ring
