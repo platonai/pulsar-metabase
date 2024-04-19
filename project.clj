@@ -78,8 +78,9 @@
                  it.unimi.dsi/fastutil]]
    [com.draines/postal "2.0.3"]                                       ; SMTP library
    [com.google.guava/guava "28.2-jre"]                                ; dep for BigQuery, Spark, and GA. Require here rather than letting different dep versions stomp on each other — see comments on #9697
-   ;[com.h2database/h2 "1.4.197"]                                     ; embedded SQL database
-   [ai.platon.pulsar/pulsar-ql-common "1.10.12"]                      ; Web SQL
+;   [com.h2database/h2 "1.4.197"]                                     ; embedded SQL database
+   [ai.platon.pulsar/pulsar-h2 "1.4.196"]                             ; embedded SQL database
+   [ai.platon.pulsar/pulsar-ql-common "1.12.4"]                       ; Web SQL
    [com.mattbertolini/liquibase-slf4j "2.0.0"]                        ; Java Migrations lib logging. We don't actually use this AFAIK (?)
    [com.taoensso/nippy "2.14.0"]                                      ; Fast serialization (i.e., GZIP) library for Clojure
    [commons-codec/commons-codec "1.14"]                               ; Apache Commons -- useful codec util fns
@@ -162,7 +163,7 @@
   :target-path "target/%s"
 
   :javac-options
-  ["-target" "1.8", "-source" "1.8"]
+  ["-target" "11", "-source" "11"]
 
   :source-paths
   ["src" "backend/mbql/src"]
