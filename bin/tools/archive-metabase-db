@@ -1,0 +1,31 @@
+#/bin/bash
+
+METABASE_HOME=/home/vincent/metabase
+if [ ! -d "$METABASE_HOME" ]; then
+  echo "Can not find metabase home"
+  exit 0
+fi
+
+cd $METABASE_HOME
+
+if [ ! -d "$METABASE_HOME/archive" ]; then
+        mkdir "$METABASE_HOME/archive"
+fi
+
+ARCHIVE_DIR="$METABASE_HOME/archive"
+DIR=`date +%Y%m%d`
+SUFFIX=`date +%H`
+DESTINATION="$ARCHIVE_DIR/$DIR/metabase.$SUFFIX.db.mv.db"
+
+if [ ! -d "$ARCHIVE_DIR/$DIR" ]; then
+        mkdir "$ARCHIVE_DIR/$DIR"
+fi
+
+# find old archives and delete them
+# find $ARCHIVE_DIR -name "*metabase.`date +%Y`.db.mv.db" -mtime +1 -exec rm {} \;
+find "$ARCHIVE_DIR" -type d -name "`date +%Y%m`*" -mtime +1 > /tmp/old-metabase-archive.txt
+
+if [ ! -e $DESTINATION ]; then
+        # make a archive
+        cp "$METABASE_HOME/metabase.db.mv.db" $DESTINATION
+fi
