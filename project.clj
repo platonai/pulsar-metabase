@@ -1,7 +1,7 @@
 ;; -*- comment-column: 70; -*-
 ;; full set of options are here .. https://github.com/technomancy/leiningen/blob/master/sample.project.clj
 
-(defproject metabase-core "1.0.0-SNAPSHOT"
+(defproject metabase-core "1.0.1-SNAPSHOT"
   :description      "Metabase Community Edition"
   :url              "https://metabase.com/"
   :min-lein-version "2.5.0"
